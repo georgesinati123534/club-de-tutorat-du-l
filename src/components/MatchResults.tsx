@@ -2,7 +2,7 @@ import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Alert, AlertDescription } from '@/components/ui/alert'
-import { ArrowLeft, GraduationCap, Calendar, CheckCircle, Star } from '@phosphor-icons/react'
+import { ArrowLeft, GraduationCap, Calendar, CheckCircle, Star, Phone } from '@phosphor-icons/react'
 import { Match, Tutee } from '@/lib/types'
 
 type MatchResultsProps = {
@@ -118,6 +118,21 @@ export default function MatchResults({ tutee, matches, onBack }: MatchResultsPro
                       )}
                     </div>
                   </div>
+
+                  {match.tutor.phoneNumber && (
+                    <div>
+                      <h4 className="text-sm font-semibold mb-2 flex items-center gap-2">
+                        <Phone size={16} weight="bold" />
+                        Contact
+                      </h4>
+                      <a 
+                        href={`tel:${match.tutor.phoneNumber}`}
+                        className="text-sm text-primary hover:underline font-medium"
+                      >
+                        {match.tutor.phoneNumber}
+                      </a>
+                    </div>
+                  )}
 
                   <div className="pt-2 border-t border-border">
                     <div className="flex items-center justify-between text-xs text-muted-foreground">

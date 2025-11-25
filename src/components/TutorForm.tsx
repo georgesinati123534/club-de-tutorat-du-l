@@ -19,6 +19,7 @@ export default function TutorForm({ onBack, onSubmit }: TutorFormProps) {
   const [firstName, setFirstName] = useState('')
   const [lastName, setLastName] = useState('')
   const [selectedClass, setSelectedClass] = useState('')
+  const [phoneNumber, setPhoneNumber] = useState('')
   const [selectedSubjects, setSelectedSubjects] = useState<string[]>([])
   const [selectedSlots, setSelectedSlots] = useState<TimeSlot[]>([])
 
@@ -62,6 +63,7 @@ export default function TutorForm({ onBack, onSubmit }: TutorFormProps) {
       class: selectedClass,
       subjects: selectedSubjects,
       availability: selectedSlots,
+      phoneNumber: phoneNumber.trim() || undefined,
       createdAt: Date.now()
     }
 
@@ -104,6 +106,20 @@ export default function TutorForm({ onBack, onSubmit }: TutorFormProps) {
                   required
                 />
               </div>
+            </div>
+
+            <div className="space-y-2">
+              <Label htmlFor="phoneNumber">Numéro de téléphone</Label>
+              <Input
+                id="phoneNumber"
+                type="tel"
+                placeholder="06 12 34 56 78"
+                value={phoneNumber}
+                onChange={(e) => setPhoneNumber(e.target.value)}
+              />
+              <p className="text-xs text-muted-foreground">
+                Optionnel - Ce numéro sera partagé avec les élèves qui cherchent un tuteur
+              </p>
             </div>
 
             <div className="space-y-2">

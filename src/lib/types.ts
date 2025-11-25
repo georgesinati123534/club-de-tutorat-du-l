@@ -12,6 +12,7 @@ export type Tutor = {
   class: string
   subjects: Subject[]
   availability: TimeSlot[]
+  phoneNumber?: string
   createdAt: number
 }
 
