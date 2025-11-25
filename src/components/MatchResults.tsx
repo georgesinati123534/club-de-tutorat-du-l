@@ -78,12 +78,8 @@ export default function MatchResults({ tutee, matches, onBack }: MatchResultsPro
                       <CardTitle className="text-xl">
                         {match.tutor.firstName} {match.tutor.lastName}
                       </CardTitle>
-                      <CardDescription className="flex items-center gap-2 mt-1">
-                        <span>{match.tutor.class}</span>
-                        <span>•</span>
-                        <span className="font-semibold text-accent-foreground">
-                          Moy. {match.tutor.average.toFixed(1)}/20
-                        </span>
+                      <CardDescription className="mt-1">
+                        {match.tutor.class}
                       </CardDescription>
                     </div>
                   </div>

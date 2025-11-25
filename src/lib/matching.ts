@@ -50,9 +50,8 @@ export function calculateCompatibility(tutor: Tutor, tutee: Tutee): number {
   
   const subjectScore = commonSubjects.length * 10
   const slotScore = commonSlots.length * 5
-  const averageBonus = tutor.average >= 18 ? 5 : 0
   
-  return subjectScore + slotScore + averageBonus
+  return subjectScore + slotScore
 }
 
 export function findMatches(tutee: Tutee, tutors: Tutor[]): Match[] {

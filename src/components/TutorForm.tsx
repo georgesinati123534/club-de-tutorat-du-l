@@ -19,7 +19,6 @@ export default function TutorForm({ onBack, onSubmit }: TutorFormProps) {
   const [firstName, setFirstName] = useState('')
   const [lastName, setLastName] = useState('')
   const [selectedClass, setSelectedClass] = useState('')
-  const [average, setAverage] = useState('')
   const [selectedSubjects, setSelectedSubjects] = useState<string[]>([])
   const [selectedSlots, setSelectedSlots] = useState<TimeSlot[]>([])
 
@@ -60,14 +59,12 @@ export default function TutorForm({ onBack, onSubmit }: TutorFormProps) {
       return
     }
 
-    const avgNum = parseFloat(average)
     const tutor: Tutor = {
       id: Date.now().toString(),
       firstName,
       lastName,
       class: selectedClass,
       subjects: selectedSubjects,
-      average: avgNum,
       availability: selectedSlots,
       createdAt: Date.now()
     }
@@ -114,36 +111,20 @@ export default function TutorForm({ onBack, onSubmit }: TutorFormProps) {
               </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div className="space-y-2">
-                <Label htmlFor="class">Classe *</Label>
-                <select
-                  id="class"
-                  value={selectedClass}
-                  onChange={(e) => setSelectedClass(e.target.value)}
-                  required
-                  className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-                >
-                  <option value="">Sélectionner...</option>
-                  {CLASSES.map(cls => (
-                    <option key={cls} value={cls}>{cls}</option>
-                  ))}
-                </select>
-              </div>
-
-              <div className="space-y-2">
-                <Label htmlFor="average">Moyenne générale (/20) *</Label>
-                <Input
-                  id="average"
-                  type="number"
-                  step="0.01"
-                  min="0"
-                  max="20"
-                  value={average}
-                  onChange={(e) => setAverage(e.target.value)}
-                  required
-                />
-              </div>
+            <div className="space-y-2">
+              <Label htmlFor="class">Classe *</Label>
+              <select
+                id="class"
+                value={selectedClass}
+                onChange={(e) => setSelectedClass(e.target.value)}
+                required
+                className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              >
+                <option value="">Sélectionner...</option>
+                {CLASSES.map(cls => (
+                  <option key={cls} value={cls}>{cls}</option>
+                ))}
+              </select>
             </div>
 
             <div className="space-y-3">

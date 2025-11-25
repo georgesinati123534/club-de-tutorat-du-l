@@ -11,7 +11,6 @@ export type Tutor = {
   lastName: string
   class: string
   subjects: Subject[]
-  average: number
   availability: TimeSlot[]
   createdAt: number
 }
