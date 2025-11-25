@@ -20,6 +20,16 @@ export default function AboutSection() {
       name: 'Georges Inati',
       role: 'Créateur',
       class: 'Terminale'
+    },
+    {
+      name: 'Raphael El Khoury',
+      role: 'Co-Fondateur',
+      class: 'Terminale'
+    },
+    {
+      name: 'Anouchka Aissa',
+      role: 'Co-Fondatrice',
+      class: 'Terminale'
     }
   ]
 
@@ -110,7 +120,7 @@ export default function AboutSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-1 gap-8 max-w-md mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
           {creators.map((creator, index) => (
             <Card key={index} className="hover:shadow-lg transition-shadow">
               <CardContent className="pt-8 text-center">
