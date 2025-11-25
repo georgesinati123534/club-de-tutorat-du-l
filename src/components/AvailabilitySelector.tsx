@@ -1,8 +1,11 @@
+import { useState } from 'react'
 import { Label } from '@/components/ui/label'
-import { Checkbox } from '@/components/ui/checkbox'
+import { Button } from '@/components/ui/button'
+import { Badge } from '@/components/ui/badge'
 import { DAYS, TIME_SLOTS } from '@/lib/matching'
 import { TimeSlot } from '@/lib/types'
 import { cn } from '@/lib/utils'
+import { Plus, X } from '@phosphor-icons/react'
 
 type AvailabilitySelectorProps = {
   selectedSlots: TimeSlot[]
@@ -15,58 +18,96 @@ export default function AvailabilitySelector({
   onToggleSlot,
   className 
 }: AvailabilitySelectorProps) {
-  const isSlotSelected = (day: string, time: string) => {
-    return selectedSlots.some(s => s.day === day && s.time === time)
+  const [selectedDay, setSelectedDay] = useState('')
+  const [selectedTime, setSelectedTime] = useState('')
+
+  const handleAddSlot = () => {
+    if (selectedDay && selectedTime) {
+      const exists = selectedSlots.some(s => s.day === selectedDay && s.time === selectedTime)
+      if (!exists) {
+        onToggleSlot(selectedDay, selectedTime)
+      }
+      setSelectedDay('')
+      setSelectedTime('')
+    }
+  }
+
+  const handleRemoveSlot = (day: string, time: string) => {
+    onToggleSlot(day, time)
   }
 
   return (
-    <div className={cn("space-y-3", className)}>
-      <Label>Disponibilités * (sélectionnez vos créneaux)</Label>
+    <div className={cn("space-y-4", className)}>
+      <Label>Disponibilités * (ajoutez vos créneaux)</Label>
       
-      <div className="overflow-x-auto rounded-lg border border-border">
-        <div className="min-w-[800px]">
-          <div className="grid grid-cols-8 gap-px bg-border">
-            <div className="bg-muted p-3 font-semibold text-sm sticky left-0 z-10"></div>
+      <div className="flex flex-col sm:flex-row gap-3">
+        <div className="flex-1 space-y-2">
+          <Label htmlFor="day-select" className="text-xs text-muted-foreground">Jour</Label>
+          <select
+            id="day-select"
+            value={selectedDay}
+            onChange={(e) => setSelectedDay(e.target.value)}
+            className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+          >
+            <option value="">Sélectionner un jour...</option>
             {DAYS.map(day => (
-              <div key={day} className="bg-muted p-3 text-center font-semibold text-sm">
-                {day.substring(0, 3)}
-              </div>
+              <option key={day} value={day}>{day}</option>
             ))}
-          </div>
+          </select>
+        </div>
 
-          {TIME_SLOTS.map(time => (
-            <div key={time} className="grid grid-cols-8 gap-px bg-border">
-              <div className="bg-background p-3 font-medium text-sm sticky left-0 z-10 border-r border-border">
-                {time}
-              </div>
-              {DAYS.map(day => {
-                const selected = isSlotSelected(day, time)
-                return (
-                  <div 
-                    key={`${day}-${time}`} 
-                    className={cn(
-                      "bg-background p-3 flex items-center justify-center cursor-pointer transition-colors hover:bg-accent/50",
-                      selected && "bg-primary/10 hover:bg-primary/20"
-                    )}
-                    onClick={() => onToggleSlot(day, time)}
-                  >
-                    <Checkbox
-                      checked={selected}
-                      onCheckedChange={() => {}}
-                      className="pointer-events-none"
-                    />
-                  </div>
-                )
-              })}
-            </div>
-          ))}
+        <div className="flex-1 space-y-2">
+          <Label htmlFor="time-select" className="text-xs text-muted-foreground">Heure</Label>
+          <select
+            id="time-select"
+            value={selectedTime}
+            onChange={(e) => setSelectedTime(e.target.value)}
+            className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+          >
+            <option value="">Sélectionner une heure...</option>
+            {TIME_SLOTS.map(time => (
+              <option key={time} value={time}>{time}</option>
+            ))}
+          </select>
+        </div>
+
+        <div className="sm:pt-7">
+          <Button
+            type="button"
+            onClick={handleAddSlot}
+            disabled={!selectedDay || !selectedTime}
+            className="w-full sm:w-auto"
+          >
+            <Plus size={20} weight="bold" />
+            Ajouter
+          </Button>
         </div>
       </div>
 
       {selectedSlots.length > 0 && (
-        <p className="text-sm text-muted-foreground">
-          {selectedSlots.length} créneau{selectedSlots.length > 1 ? 'x' : ''} sélectionné{selectedSlots.length > 1 ? 's' : ''}
-        </p>
+        <div className="space-y-2">
+          <p className="text-sm text-muted-foreground">
+            {selectedSlots.length} créneau{selectedSlots.length > 1 ? 'x' : ''} sélectionné{selectedSlots.length > 1 ? 's' : ''}
+          </p>
+          <div className="flex flex-wrap gap-2">
+            {selectedSlots.map((slot, index) => (
+              <Badge
+                key={`${slot.day}-${slot.time}-${index}`}
+                variant="secondary"
+                className="pl-3 pr-2 py-2 gap-2"
+              >
+                <span>{slot.day} {slot.time}</span>
+                <button
+                  type="button"
+                  onClick={() => handleRemoveSlot(slot.day, slot.time)}
+                  className="hover:bg-muted-foreground/20 rounded-sm transition-colors"
+                >
+                  <X size={14} weight="bold" />
+                </button>
+              </Badge>
+            ))}
+          </div>
+        </div>
       )}
     </div>
   )
