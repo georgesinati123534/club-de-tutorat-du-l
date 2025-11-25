@@ -23,6 +23,10 @@ export const SUBJECTS = [
 ]
 
 export const CLASSES = [
+  'Sixième',
+  'Cinquième',
+  'Quatrième',
+  'Troisième',
   'Seconde',
   'Première',
   'Terminale'
