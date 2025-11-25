@@ -24,10 +24,10 @@ export default function ContactSection() {
               <h3 className="font-bold text-xl mb-2">Email</h3>
               <p className="text-muted-foreground mb-2">Écrivez-nous à</p>
               <a 
-                href="mailto:tutorat@lycee-bonaparte.fr" 
+                href="mailto:secretariat@lycee-bonaparte.fr" 
                 className="text-primary hover:underline font-medium"
               >
-                tutorat@lycee-bonaparte.fr
+                secretariat@lycee-bonaparte.fr
               </a>
             </CardContent>
           </Card>
