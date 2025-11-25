@@ -5,13 +5,13 @@ export default function AboutSection() {
   const founders = [
     {
       name: 'Carl Saleh',
-      role: 'Fondateur & Coordinateur',
+      role: 'Fondateur',
       class: 'Terminale',
       description: 'Passionné par les mathématiques et l\'entraide scolaire'
     },
     {
       name: 'Christa Tutunji',
-      role: 'Co-fondatrice',
+      role: 'Fondatrice',
       class: 'Terminale',
       description: 'Spécialiste sciences et organisation du tutorat'
     }
