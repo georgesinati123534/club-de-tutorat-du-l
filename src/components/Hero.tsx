@@ -67,7 +67,7 @@ export default function Hero({ onBecomeTutor, onFindTutor }: HeroProps) {
               </div>
               <h3 className="font-semibold text-lg mb-2">Toutes les Matières</h3>
               <p className="text-muted-foreground text-center">
-                De la Seconde à la Terminale
+                De la Sixième à la Terminale
               </p>
             </div>
           </div>
