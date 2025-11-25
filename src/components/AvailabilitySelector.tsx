@@ -52,6 +52,7 @@ export default function AvailabilitySelector({
                   >
                     <Checkbox
                       checked={selected}
+                      onCheckedChange={() => {}}
                       className="pointer-events-none"
                     />
                   </div>
