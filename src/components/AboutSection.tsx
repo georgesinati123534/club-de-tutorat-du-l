@@ -18,7 +18,7 @@ export default function AboutSection() {
   const creators = [
     {
       name: 'Georges Inati',
-      role: 'Co-Créateur',
+      role: 'Créateur',
       class: 'Terminale'
     },
     {
