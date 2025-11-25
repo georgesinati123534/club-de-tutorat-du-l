@@ -149,7 +149,7 @@ export default function MatchResults({ tutee, matches, onBack }: MatchResultsPro
 
           <Alert className="mt-8">
             <AlertDescription>
-              <strong>Prochaine étape :</strong> Contactez le tuteur que vous souhaitez
+              <strong>Prochaine étape :</strong> Contactez le tuteur que vous souhaitez pour mettre en place un cours
             </AlertDescription>
           </Alert>
         </>
