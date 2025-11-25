@@ -6,14 +6,12 @@ export default function AboutSection() {
     {
       name: 'Carl Saleh',
       role: 'Fondateur',
-      class: 'Terminale',
-      description: 'Passionné par les mathématiques et l\'entraide scolaire'
+      class: 'Terminale'
     },
     {
       name: 'Christa Tutunji',
       role: 'Fondatrice',
-      class: 'Terminale',
-      description: 'Spécialiste sciences et organisation du tutorat'
+      class: 'Terminale'
     }
   ]
 
@@ -98,8 +96,7 @@ export default function AboutSection() {
                 </div>
                 <h3 className="font-bold text-xl mb-1">{founder.name}</h3>
                 <p className="text-accent-foreground font-semibold mb-1">{founder.role}</p>
-                <p className="text-sm text-muted-foreground mb-3">{founder.class}</p>
-                <p className="text-sm text-foreground/80">{founder.description}</p>
+                <p className="text-sm text-muted-foreground">{founder.class}</p>
               </CardContent>
             </Card>
           ))}
