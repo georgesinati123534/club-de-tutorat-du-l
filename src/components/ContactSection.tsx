@@ -72,7 +72,7 @@ export default function ContactSection() {
             <div className="flex flex-col md:flex-row gap-4 justify-center items-center text-sm text-muted-foreground">
               <div className="flex items-center gap-2">
                 <MapPin size={16} weight="bold" />
-                <span>23 Avenue de la République, 75011 Paris</span>
+                <span>Al Intisar Street, PO BOX: 6110 Doha – Qatar</span>
               </div>
               <span className="hidden md:inline">•</span>
               <div className="flex items-center gap-2">
