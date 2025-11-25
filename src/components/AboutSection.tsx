@@ -18,17 +18,17 @@ export default function AboutSection() {
   const creators = [
     {
       name: 'Georges Inati',
-      role: 'Créateur',
+      role: 'Co-Créateur',
       class: 'Terminale'
     },
     {
       name: 'Raphael El Khoury',
-      role: 'Co-Fondateur',
+      role: 'Créateur',
       class: 'Terminale'
     },
     {
       name: 'Anouchka Aissa',
-      role: 'Co-Fondatrice',
+      role: 'Co-Créatrice',
       class: 'Terminale'
     }
   ]
