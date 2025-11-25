@@ -12,7 +12,7 @@ export const SUBJECTS = [
   'Histoire-Géographie',
   'Anglais',
   'Espagnol',
-  'Allemand',
+  'Arabe',
   'SES',
   'NSI',
   'SI'
