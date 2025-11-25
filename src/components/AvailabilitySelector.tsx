@@ -52,7 +52,6 @@ export default function AvailabilitySelector({
                   >
                     <Checkbox
                       checked={selected}
-                      onCheckedChange={() => onToggleSlot(day, time)}
                       className="pointer-events-none"
                     />
                   </div>
