@@ -118,7 +118,7 @@ export default function TutorForm({ onBack, onSubmit }: TutorFormProps) {
                 onChange={(e) => setPhoneNumber(e.target.value)}
               />
               <p className="text-xs text-muted-foreground">
-                Optionnel - Ce numéro sera partagé avec les élèves qui cherchent un tuteur
+                Vous allez recevoir un message d'un tutoré lorsqu'il vous choisit
               </p>
             </div>
 
