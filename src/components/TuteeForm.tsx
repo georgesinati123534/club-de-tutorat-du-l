@@ -4,11 +4,11 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
-import { Checkbox } from '@/components/ui/checkbox'
 import { ArrowLeft, CheckCircle } from '@phosphor-icons/react'
-import { SUBJECTS, CLASSES, DAYS, TIME_SLOTS } from '@/lib/matching'
+import { SUBJECTS, CLASSES } from '@/lib/matching'
 import { Tutee, TimeSlot } from '@/lib/types'
 import { toast } from 'sonner'
+import AvailabilitySelector from '@/components/AvailabilitySelector'
 
 type TuteeFormProps = {
   onBack: () => void
@@ -41,10 +41,6 @@ export default function TuteeForm({ onBack, onSubmit }: TuteeFormProps) {
         return [...prev, slot]
       }
     })
-  }
-
-  const isSlotSelected = (day: string, time: string) => {
-    return selectedSlots.some(s => s.day === day && s.time === time)
   }
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -161,48 +157,10 @@ export default function TuteeForm({ onBack, onSubmit }: TuteeFormProps) {
               </div>
             </div>
 
-            <div className="space-y-3">
-              <Label>Disponibilités * (sélectionnez vos créneaux)</Label>
-              <div className="overflow-x-auto">
-                <table className="w-full border-collapse">
-                  <thead>
-                    <tr>
-                      <th className="border border-border p-2 bg-muted text-left font-semibold text-sm">
-                        Jour
-                      </th>
-                      {TIME_SLOTS.map(time => (
-                        <th key={time} className="border border-border p-2 bg-muted text-center font-semibold text-sm">
-                          {time}
-                        </th>
-                      ))}
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {DAYS.map(day => (
-                      <tr key={day}>
-                        <td className="border border-border p-2 font-medium text-sm">
-                          {day}
-                        </td>
-                        {TIME_SLOTS.map(time => (
-                          <td key={`${day}-${time}`} className="border border-border p-2 text-center">
-                            <Checkbox
-                              checked={isSlotSelected(day, time)}
-                              onCheckedChange={() => toggleSlot(day, time)}
-                              className="mx-auto"
-                            />
-                          </td>
-                        ))}
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-              {selectedSlots.length > 0 && (
-                <p className="text-sm text-muted-foreground">
-                  {selectedSlots.length} créneau{selectedSlots.length > 1 ? 'x' : ''} sélectionné{selectedSlots.length > 1 ? 's' : ''}
-                </p>
-              )}
-            </div>
+            <AvailabilitySelector
+              selectedSlots={selectedSlots}
+              onToggleSlot={toggleSlot}
+            />
 
             <Button type="submit" size="lg" className="w-full">
               <CheckCircle size={20} className="mr-2" weight="bold" />
