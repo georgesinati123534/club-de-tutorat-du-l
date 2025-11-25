@@ -4,14 +4,14 @@ import { Users, Target, Heart } from '@phosphor-icons/react'
 export default function AboutSection() {
   const founders = [
     {
-      name: 'Marie Dubois',
-      role: 'Fondatrice & Coordinatrice',
+      name: 'Carl Saleh',
+      role: 'Fondateur & Coordinateur',
       class: 'Terminale',
-      description: 'Passionnée par les mathématiques et l\'entraide scolaire'
+      description: 'Passionné par les mathématiques et l\'entraide scolaire'
     },
     {
-      name: 'Thomas Martin',
-      role: 'Co-fondateur',
+      name: 'Christa Tutunji',
+      role: 'Co-fondatrice',
       class: 'Terminale',
       description: 'Spécialiste sciences et organisation du tutorat'
     }
