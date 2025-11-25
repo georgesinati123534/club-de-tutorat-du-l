@@ -149,8 +149,7 @@ export default function MatchResults({ tutee, matches, onBack }: MatchResultsPro
 
           <Alert className="mt-8">
             <AlertDescription>
-              <strong>Prochaine étape :</strong> Contactez le Club de Tutorat pour finaliser 
-              la mise en relation avec le tuteur de votre choix.
+              <strong>Prochaine étape :</strong> Contactez le tuteur que vous souhaitez
             </AlertDescription>
           </Alert>
         </>
