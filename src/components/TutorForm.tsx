@@ -66,7 +66,6 @@ export default function TutorForm({ onBack, onSubmit }: TutorFormProps) {
     }
 
     onSubmit(tutor)
-    toast.success('Inscription réussie ! Merci de rejoindre le Club de Tutorat.')
   }
 
   return (

@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useKV } from '@github/spark/hooks'
-import { Toaster } from '@/components/ui/sonner'
+import { Toaster, toast } from 'sonner'
 import Hero from '@/components/Hero'
 import TutorForm from '@/components/TutorForm'
 import TuteeForm from '@/components/TuteeForm'
@@ -23,10 +23,12 @@ function App() {
     setTutors((current) => [...(current ?? []), tutor])
     setView('home')
     window.scrollTo({ top: 0, behavior: 'smooth' })
+    toast.success('Inscription réussie ! Merci de rejoindre le Club de Tutorat.')
   }
 
   const handleTuteeSubmit = (tutee: Tutee) => {
-    const matches = findMatches(tutee, tutors ?? [])
+    const tutorList = tutors ?? []
+    const matches = findMatches(tutee, tutorList)
     setCurrentTutee(tutee)
     setCurrentMatches(matches)
     setView('results')
