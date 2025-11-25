@@ -40,8 +40,9 @@ export default function ContactSection() {
               <h3 className="font-bold text-xl mb-2">Adresse</h3>
               <p className="text-muted-foreground mb-2">Lycée Bonaparte</p>
               <p className="text-foreground font-medium">
-                Salle B204<br />
-                Tous les mercredis 16h-18h
+                Al Intisar Street<br />
+                PO BOX: 6110<br />
+                Doha – Qatar
               </p>
             </CardContent>
           </Card>
@@ -60,28 +61,6 @@ export default function ContactSection() {
             </CardContent>
           </Card>
         </div>
-
-        <Card className="mt-12 bg-gradient-to-br from-primary/5 to-accent/5 border-primary/20">
-          <CardContent className="pt-8 text-center">
-            <h3 className="font-bold text-2xl mb-4 text-primary">
-              Lycée Bonaparte
-            </h3>
-            <p className="text-foreground/80 text-lg mb-6">
-              Établissement d'excellence au service de la réussite de nos élèves depuis 1892
-            </p>
-            <div className="flex flex-col md:flex-row gap-4 justify-center items-center text-sm text-muted-foreground">
-              <div className="flex items-center gap-2">
-                <MapPin size={16} weight="bold" />
-                <span>Al Intisar Street, PO BOX: 6110 Doha – Qatar</span>
-              </div>
-              <span className="hidden md:inline">•</span>
-              <div className="flex items-center gap-2">
-                <Phone size={16} weight="bold" />
-                <span>01 23 45 67 89</span>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
       </div>
     </div>
   )
