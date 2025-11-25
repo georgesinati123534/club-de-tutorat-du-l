@@ -28,7 +28,7 @@ export default function AboutSection() {
     },
     {
       name: 'Anouchka Aissa',
-      role: 'Contributeur',
+      role: 'Contributrice',
       class: 'Terminale'
     }
   ]
