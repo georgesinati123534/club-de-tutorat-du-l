@@ -23,12 +23,12 @@ export default function AboutSection() {
     },
     {
       name: 'Raphael El Khoury',
-      role: 'Créateur',
+      role: 'Développeur',
       class: 'Terminale'
     },
     {
       name: 'Anouchka Aissa',
-      role: 'Co-Créatrice',
+      role: 'Contributeur',
       class: 'Terminale'
     }
   ]
