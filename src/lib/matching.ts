@@ -22,7 +22,7 @@ export const SUBJECTS = [
   'LLCE'
 ]
 
-export const CLASSES = [
+export const CLASSES_TUTEE = [
   'Sixième',
   'Cinquième',
   'Quatrième',
@@ -31,6 +31,14 @@ export const CLASSES = [
   'Première',
   'Terminale'
 ]
+
+export const CLASSES_TUTOR = [
+  'Seconde',
+  'Première',
+  'Terminale'
+]
+
+export const CLASSES = CLASSES_TUTEE
 
 export function areSlotsEqual(slot1: TimeSlot, slot2: TimeSlot): boolean {
   return slot1.day === slot2.day && slot1.time === slot2.time
