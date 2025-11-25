@@ -1,5 +1,5 @@
 import { Card, CardContent } from '@/components/ui/card'
-import { EnvelopeSimple, MapPin } from '@phosphor-icons/react'
+import { EnvelopeSimple, MapPin, Phone } from '@phosphor-icons/react'
 
 export default function ContactSection() {
   return (
@@ -15,7 +15,23 @@ export default function ContactSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          <Card className="hover:shadow-lg transition-shadow">
+            <CardContent className="pt-8 text-center">
+              <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
+                <Phone size={32} className="text-primary" weight="duotone" />
+              </div>
+              <h3 className="font-bold text-xl mb-2">Téléphone</h3>
+              <p className="text-muted-foreground mb-2">Appelez-nous</p>
+              <a 
+                href="tel:+97444960300" 
+                className="text-primary hover:underline font-medium"
+              >
+                +974 4496 0300
+              </a>
+            </CardContent>
+          </Card>
+
           <Card className="hover:shadow-lg transition-shadow">
             <CardContent className="pt-8 text-center">
               <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
