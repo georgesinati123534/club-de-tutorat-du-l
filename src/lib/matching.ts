@@ -15,7 +15,9 @@ export const SUBJECTS = [
   'Arabe',
   'SES',
   'NSI',
-  'SI'
+  'SNT',
+  'HGGSP',
+  'LLCE'
 ]
 
 export const CLASSES = [
