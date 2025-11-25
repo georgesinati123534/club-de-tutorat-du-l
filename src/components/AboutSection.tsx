@@ -1,0 +1,107 @@
+import { Card, CardContent } from '@/components/ui/card'
+import { Users, Target, Heart } from '@phosphor-icons/react'
+
+export default function AboutSection() {
+  const founders = [
+    {
+      name: 'Marie Dubois',
+      role: 'Fondatrice & Coordinatrice',
+      class: 'Terminale',
+      description: 'Passionnée par les mathématiques et l\'entraide scolaire'
+    },
+    {
+      name: 'Thomas Martin',
+      role: 'Co-fondateur',
+      class: 'Terminale',
+      description: 'Spécialiste sciences et organisation du tutorat'
+    },
+    {
+      name: 'Sophie Laurent',
+      role: 'Responsable Communication',
+      class: 'Première',
+      description: 'Gestion des inscriptions et suivi des élèves'
+    }
+  ]
+
+  return (
+    <div className="bg-gradient-to-br from-primary/5 to-secondary/5 py-20">
+      <div className="max-w-7xl mx-auto px-6 md:px-12">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold text-primary mb-4">
+            Notre Mission
+          </h2>
+          <p className="text-lg text-foreground/80 max-w-3xl mx-auto">
+            Le Club de Tutorat du Lycée Bonaparte a été créé pour promouvoir l'excellence 
+            académique et l'entraide entre élèves. Notre objectif est de créer une communauté 
+            solidaire où chacun peut progresser.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+          <Card className="text-center">
+            <CardContent className="pt-8">
+              <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
+                <Target size={32} className="text-primary" weight="duotone" />
+              </div>
+              <h3 className="font-bold text-xl mb-2">Excellence</h3>
+              <p className="text-muted-foreground">
+                Des tuteurs qualifiés avec un haut niveau académique pour garantir un accompagnement de qualité
+              </p>
+            </CardContent>
+          </Card>
+
+          <Card className="text-center">
+            <CardContent className="pt-8">
+              <div className="w-16 h-16 rounded-full bg-secondary/10 flex items-center justify-center mx-auto mb-4">
+                <Users size={32} className="text-secondary" weight="duotone" />
+              </div>
+              <h3 className="font-bold text-xl mb-2">Communauté</h3>
+              <p className="text-muted-foreground">
+                Un réseau d'entraide qui renforce les liens entre élèves et favorise la réussite collective
+              </p>
+            </CardContent>
+          </Card>
+
+          <Card className="text-center">
+            <CardContent className="pt-8">
+              <div className="w-16 h-16 rounded-full bg-accent/10 flex items-center justify-center mx-auto mb-4">
+                <Heart size={32} className="text-accent-foreground" weight="duotone" />
+              </div>
+              <h3 className="font-bold text-xl mb-2">Bienveillance</h3>
+              <p className="text-muted-foreground">
+                Un accompagnement basé sur le respect, la patience et l'encouragement mutuel
+              </p>
+            </CardContent>
+          </Card>
+        </div>
+
+        <div className="text-center mb-12">
+          <h2 className="text-4xl md:text-5xl font-bold text-primary mb-4">
+            Les Fondateurs
+          </h2>
+          <p className="text-lg text-foreground/80">
+            Une équipe d'élèves motivés au service de la réussite de tous
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {founders.map((founder, index) => (
+            <Card key={index} className="hover:shadow-lg transition-shadow">
+              <CardContent className="pt-8 text-center">
+                <div className="w-20 h-20 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center mx-auto mb-4">
+                  <span className="text-3xl font-bold text-white">
+                    {founder.name.split(' ').map(n => n[0]).join('')}
+                  </span>
+                </div>
+                <h3 className="font-bold text-xl mb-1">{founder.name}</h3>
+                <p className="text-accent-foreground font-semibold mb-1">{founder.role}</p>
+                <p className="text-sm text-muted-foreground mb-3">{founder.class}</p>
+                <p className="text-sm text-foreground/80">{founder.description}</p>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </div>
+    </div>
+  )
+}
