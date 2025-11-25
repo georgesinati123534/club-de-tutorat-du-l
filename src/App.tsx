@@ -20,13 +20,13 @@ function App() {
   const [currentTutee, setCurrentTutee] = useState<Tutee | null>(null)
 
   const handleTutorSubmit = (tutor: Tutor) => {
-    setTutors((current) => [...(current || []), tutor])
+    setTutors((current) => [...(current ?? []), tutor])
     setView('home')
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
   const handleTuteeSubmit = (tutee: Tutee) => {
-    const matches = findMatches(tutee, tutors || [])
+    const matches = findMatches(tutee, tutors ?? [])
     setCurrentTutee(tutee)
     setCurrentMatches(matches)
     setView('results')
