@@ -4,7 +4,6 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
-import { Alert, AlertDescription } from '@/components/ui/alert'
 import { Checkbox } from '@/components/ui/checkbox'
 import { ArrowLeft, CheckCircle, X } from '@phosphor-icons/react'
 import { SUBJECTS, CLASSES, DAYS, TIME_SLOTS } from '@/lib/matching'
@@ -23,7 +22,6 @@ export default function TutorForm({ onBack, onSubmit }: TutorFormProps) {
   const [average, setAverage] = useState('')
   const [selectedSubjects, setSelectedSubjects] = useState<string[]>([])
   const [selectedSlots, setSelectedSlots] = useState<TimeSlot[]>([])
-  const [showAverageError, setShowAverageError] = useState(false)
 
   const toggleSubject = (subject: string) => {
     setSelectedSubjects(prev =>
@@ -52,12 +50,6 @@ export default function TutorForm({ onBack, onSubmit }: TutorFormProps) {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     
-    const avgNum = parseFloat(average)
-    if (avgNum < 16) {
-      setShowAverageError(true)
-      return
-    }
-    
     if (selectedSubjects.length === 0) {
       toast.error('Veuillez sélectionner au moins une matière')
       return
@@ -68,6 +60,7 @@ export default function TutorForm({ onBack, onSubmit }: TutorFormProps) {
       return
     }
 
+    const avgNum = parseFloat(average)
     const tutor: Tutor = {
       id: Date.now().toString(),
       firstName,
@@ -98,13 +91,6 @@ export default function TutorForm({ onBack, onSubmit }: TutorFormProps) {
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <Alert className="mb-6 bg-accent/10 border-accent">
-            <AlertDescription className="text-sm">
-              <strong>Conditions de participation :</strong> Moyenne générale minimum de 16/20. 
-              En tant que tuteur, vous vous engagez à accompagner les élèves avec sérieux et bienveillance.
-            </AlertDescription>
-          </Alert>
-
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="space-y-2">
@@ -154,17 +140,9 @@ export default function TutorForm({ onBack, onSubmit }: TutorFormProps) {
                   min="0"
                   max="20"
                   value={average}
-                  onChange={(e) => {
-                    setAverage(e.target.value)
-                    setShowAverageError(false)
-                  }}
+                  onChange={(e) => setAverage(e.target.value)}
                   required
                 />
-                {showAverageError && (
-                  <p className="text-sm text-destructive">
-                    La moyenne minimum requise est de 16/20
-                  </p>
-                )}
               </div>
             </div>
 
