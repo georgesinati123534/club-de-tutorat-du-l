@@ -17,10 +17,9 @@ export default function AboutSection() {
 
   const creators = [
     {
-      name: 'Sophie Laurent',
-      role: 'Créatrice',
-      class: 'Première',
-      description: 'Gestion des inscriptions et suivi des élèves'
+      name: 'Georges Inati',
+      role: 'Créateur',
+      class: 'Terminale'
     }
   ]
 
@@ -122,8 +121,7 @@ export default function AboutSection() {
                 </div>
                 <h3 className="font-bold text-xl mb-1">{creator.name}</h3>
                 <p className="text-accent-foreground font-semibold mb-1">{creator.role}</p>
-                <p className="text-sm text-muted-foreground mb-3">{creator.class}</p>
-                <p className="text-sm text-foreground/80">{creator.description}</p>
+                <p className="text-sm text-muted-foreground">{creator.class}</p>
               </CardContent>
             </Card>
           ))}
