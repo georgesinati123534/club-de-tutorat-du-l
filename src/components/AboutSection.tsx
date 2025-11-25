@@ -14,10 +14,13 @@ export default function AboutSection() {
       role: 'Co-fondateur',
       class: 'Terminale',
       description: 'Spécialiste sciences et organisation du tutorat'
-    },
+    }
+  ]
+
+  const creators = [
     {
       name: 'Sophie Laurent',
-      role: 'Responsable Communication',
+      role: 'Créatrice',
       class: 'Première',
       description: 'Gestion des inscriptions et suivi des élèves'
     }
@@ -80,11 +83,11 @@ export default function AboutSection() {
             Les Fondateurs
           </h2>
           <p className="text-lg text-foreground/80">
-            Une équipe d'élèves motivés au service de la réussite de tous
+            Les initiateurs du Club de Tutorat
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-20">
           {founders.map((founder, index) => (
             <Card key={index} className="hover:shadow-lg transition-shadow">
               <CardContent className="pt-8 text-center">
@@ -97,6 +100,33 @@ export default function AboutSection() {
                 <p className="text-accent-foreground font-semibold mb-1">{founder.role}</p>
                 <p className="text-sm text-muted-foreground mb-3">{founder.class}</p>
                 <p className="text-sm text-foreground/80">{founder.description}</p>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+
+        <div className="text-center mb-12">
+          <h2 className="text-4xl md:text-5xl font-bold text-primary mb-4">
+            Les Créateurs
+          </h2>
+          <p className="text-lg text-foreground/80">
+            Les contributeurs créatifs du projet
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-1 gap-8 max-w-md mx-auto">
+          {creators.map((creator, index) => (
+            <Card key={index} className="hover:shadow-lg transition-shadow">
+              <CardContent className="pt-8 text-center">
+                <div className="w-20 h-20 rounded-full bg-gradient-to-br from-accent to-secondary flex items-center justify-center mx-auto mb-4">
+                  <span className="text-3xl font-bold text-white">
+                    {creator.name.split(' ').map(n => n[0]).join('')}
+                  </span>
+                </div>
+                <h3 className="font-bold text-xl mb-1">{creator.name}</h3>
+                <p className="text-accent-foreground font-semibold mb-1">{creator.role}</p>
+                <p className="text-sm text-muted-foreground mb-3">{creator.class}</p>
+                <p className="text-sm text-foreground/80">{creator.description}</p>
               </CardContent>
             </Card>
           ))}
