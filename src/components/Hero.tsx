@@ -50,17 +50,7 @@ export default function Hero({ onBecomeTutor, onFindTutor }: HeroProps) {
             </Button>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
-            <div className="flex flex-col items-center">
-              <div className="w-16 h-16 rounded-full bg-accent/20 flex items-center justify-center mb-4">
-                <GraduationCap size={32} className="text-accent-foreground" weight="duotone" />
-              </div>
-              <h3 className="font-semibold text-lg mb-2">Excellence Académique</h3>
-              <p className="text-muted-foreground text-center">
-                Tuteurs sélectionnés avec moyenne ≥ 16/20
-              </p>
-            </div>
-            
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-16 max-w-3xl mx-auto">
             <div className="flex flex-col items-center">
               <div className="w-16 h-16 rounded-full bg-accent/20 flex items-center justify-center mb-4">
                 <Users size={32} className="text-accent-foreground" weight="duotone" />
