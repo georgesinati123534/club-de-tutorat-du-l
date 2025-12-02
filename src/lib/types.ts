@@ -13,6 +13,7 @@ export type Tutor = {
   subjects: Subject[]
   availability: TimeSlot[]
   phoneNumber?: string
+  email?: string
   createdAt: number
 }
 

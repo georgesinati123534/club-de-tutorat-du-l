@@ -20,6 +20,7 @@ export default function TutorForm({ onBack, onSubmit }: TutorFormProps) {
   const [lastName, setLastName] = useState('')
   const [selectedClass, setSelectedClass] = useState('')
   const [phoneNumber, setPhoneNumber] = useState('')
+  const [email, setEmail] = useState('')
   const [selectedSubjects, setSelectedSubjects] = useState<string[]>([])
   const [selectedSlots, setSelectedSlots] = useState<TimeSlot[]>([])
 
@@ -64,6 +65,7 @@ export default function TutorForm({ onBack, onSubmit }: TutorFormProps) {
       subjects: selectedSubjects,
       availability: selectedSlots,
       phoneNumber: phoneNumber.trim() || undefined,
+      email: email.trim() || undefined,
       createdAt: Date.now()
     }
 
@@ -119,6 +121,20 @@ export default function TutorForm({ onBack, onSubmit }: TutorFormProps) {
               />
               <p className="text-xs text-muted-foreground">
                 Vous allez recevoir un message d'un tutoré lorsqu'il vous choisit
+              </p>
+            </div>
+
+            <div className="space-y-2">
+              <Label htmlFor="email">Adresse e-mail</Label>
+              <Input
+                id="email"
+                type="email"
+                placeholder="votre.email@exemple.fr"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+              <p className="text-xs text-muted-foreground">
+                Pour être contacté(e) par les tutorés
               </p>
             </div>
 
