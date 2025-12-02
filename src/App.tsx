@@ -3,6 +3,7 @@ import { useKV } from '@github/spark/hooks'
 import { Toaster, toast } from 'sonner'
 import Hero from '@/components/Hero'
 import TutorForm from '@/components/TutorForm'
+import TutorConfirmation from '@/components/TutorConfirmation'
 import TuteeForm from '@/components/TuteeForm'
 import MatchResults from '@/components/MatchResults'
 import AboutSection from '@/components/AboutSection'
@@ -11,19 +12,20 @@ import Footer from '@/components/Footer'
 import { Tutor, Tutee, Match } from '@/lib/types'
 import { findMatches } from '@/lib/matching'
 
-type View = 'home' | 'tutor-form' | 'tutee-form' | 'results'
+type View = 'home' | 'tutor-form' | 'tutor-confirmation' | 'tutee-form' | 'results'
 
 function App() {
   const [view, setView] = useState<View>('home')
   const [tutors, setTutors] = useKV<Tutor[]>('tutors', [])
   const [currentMatches, setCurrentMatches] = useState<Match[]>([])
   const [currentTutee, setCurrentTutee] = useState<Tutee | null>(null)
+  const [currentTutor, setCurrentTutor] = useState<Tutor | null>(null)
 
   const handleTutorSubmit = (tutor: Tutor) => {
     setTutors((current) => [...(current ?? []), tutor])
-    setView('home')
+    setCurrentTutor(tutor)
+    setView('tutor-confirmation')
     window.scrollTo({ top: 0, behavior: 'smooth' })
-    toast.success('Inscription réussie ! Merci de rejoindre le Club de Tutorat.')
   }
 
   const handleTuteeSubmit = (tutee: Tutee) => {
@@ -59,6 +61,13 @@ function App() {
         <TutorForm
           onBack={handleBackToHome}
           onSubmit={handleTutorSubmit}
+        />
+      )}
+
+      {view === 'tutor-confirmation' && currentTutor && (
+        <TutorConfirmation
+          tutor={currentTutor}
+          onBack={handleBackToHome}
         />
       )}
 
