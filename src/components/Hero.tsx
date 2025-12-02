@@ -1,6 +1,5 @@
 import { Button } from '@/components/ui/button'
 import { GraduationCap, BookOpen, Users } from '@phosphor-icons/react'
-import logoSvg from '@/assets/images/logo.svg'
 
 type HeroProps = {
   onBecomeTutor: () => void
@@ -10,13 +9,6 @@ type HeroProps = {
 export default function Hero({ onBecomeTutor, onFindTutor }: HeroProps) {
   return (
     <div className="relative bg-gradient-to-br from-primary/5 via-background to-accent/5 py-20 md:py-32">
-      <div className="absolute top-6 left-6 md:top-8 md:left-12">
-        <img 
-          src={logoSvg} 
-          alt="Lycée Bonaparte" 
-          className="h-14 md:h-20 w-auto object-contain"
-        />
-      </div>
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <div className="text-center max-w-4xl mx-auto">
           <div className="flex justify-center mb-8">
