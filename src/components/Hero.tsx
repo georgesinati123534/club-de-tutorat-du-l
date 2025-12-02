@@ -1,13 +1,14 @@
 import { Button } from '@/components/ui/button'
-import { GraduationCap, BookOpen, Users } from '@phosphor-icons/react'
+import { GraduationCap, BookOpen, Users, UserCircleGear } from '@phosphor-icons/react'
 import logo from '@/assets/images/Logo_(1).png'
 
 type HeroProps = {
   onBecomeTutor: () => void
   onFindTutor: () => void
+  onEditProfile: () => void
 }
 
-export default function Hero({ onBecomeTutor, onFindTutor }: HeroProps) {
+export default function Hero({ onBecomeTutor, onFindTutor, onEditProfile }: HeroProps) {
   return (
     <div className="relative bg-gradient-to-br from-primary/5 via-background to-accent/5 py-20 md:py-32">
       <div className="absolute top-6 left-6 md:top-8 md:left-12">
@@ -34,7 +35,7 @@ export default function Hero({ onBecomeTutor, onFindTutor }: HeroProps) {
             et tutorés pour favoriser l'entraide et la réussite de tous.
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
             <Button 
               size="lg" 
               className="text-base font-semibold tracking-wide shadow-lg hover:shadow-xl transition-shadow"
@@ -51,6 +52,18 @@ export default function Hero({ onBecomeTutor, onFindTutor }: HeroProps) {
             >
               <BookOpen size={20} className="mr-2" weight="bold" />
               SE FAIRE TUTORER
+            </Button>
+          </div>
+
+          <div className="flex justify-center mb-16">
+            <Button 
+              size="default" 
+              variant="ghost"
+              className="text-sm font-medium text-muted-foreground hover:text-primary"
+              onClick={onEditProfile}
+            >
+              <UserCircleGear size={18} className="mr-2" weight="bold" />
+              Modifier mon profil de tuteur
             </Button>
           </div>
           
