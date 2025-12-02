@@ -15,7 +15,7 @@ export default function AboutSection() {
     },
     {
       name: 'Georges Inati',
-      role: 'Fondateur et Créateur',
+      role: 'Fondateur et Développeur',
       class: 'Terminale'
     }
   ]
