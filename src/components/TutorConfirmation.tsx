@@ -33,17 +33,27 @@ export default function TutorConfirmation({ tutor, onBack }: TutorConfirmationPr
                   <h3 className="font-semibold text-lg mb-2">Prochaines étapes</h3>
                   <p className="text-muted-foreground leading-relaxed">
                     Votre profil est maintenant visible aux élèves recherchant de l'aide. 
-                    Lorsqu'un tutoré vous sélectionnera, vous recevrez un message{tutor.phoneNumber && ' par SMS'} 
+                    Lorsqu'un tutoré vous sélectionnera, vous recevrez un message
+                    {tutor.email && tutor.phoneNumber && ' par email et SMS'}
+                    {tutor.email && !tutor.phoneNumber && ' par email'}
+                    {!tutor.email && tutor.phoneNumber && ' par SMS'} 
                     avec ses coordonnées.
                   </p>
                 </div>
               </div>
 
-              {tutor.phoneNumber && (
-                <div className="bg-background rounded-md p-4 border border-border">
-                  <p className="text-sm">
-                    <span className="font-medium">Numéro de contact :</span> {tutor.phoneNumber}
-                  </p>
+              {(tutor.phoneNumber || tutor.email) && (
+                <div className="bg-background rounded-md p-4 border border-border space-y-2">
+                  {tutor.email && (
+                    <p className="text-sm">
+                      <span className="font-medium">Email :</span> {tutor.email}
+                    </p>
+                  )}
+                  {tutor.phoneNumber && (
+                    <p className="text-sm">
+                      <span className="font-medium">Numéro de contact :</span> {tutor.phoneNumber}
+                    </p>
+                  )}
                 </div>
               )}
             </div>
