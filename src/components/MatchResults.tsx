@@ -2,7 +2,7 @@ import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Alert, AlertDescription } from '@/components/ui/alert'
-import { ArrowLeft, GraduationCap, Calendar, CheckCircle, Star, Phone } from '@phosphor-icons/react'
+import { ArrowLeft, GraduationCap, Calendar, CheckCircle, Star, Phone, EnvelopeSimple, WhatsappLogo } from '@phosphor-icons/react'
 import { Match, Tutee } from '@/lib/types'
 
 type MatchResultsProps = {
@@ -119,18 +119,43 @@ export default function MatchResults({ tutee, matches, onBack }: MatchResultsPro
                     </div>
                   </div>
 
-                  {match.tutor.phoneNumber && (
+                  {(match.tutor.phoneNumber || match.tutor.email) && (
                     <div>
                       <h4 className="text-sm font-semibold mb-2 flex items-center gap-2">
-                        <Phone size={16} weight="bold" />
-                        Contact
+                        {match.tutor.preferredContact === 'whatsapp' ? (
+                          <WhatsappLogo size={16} weight="bold" />
+                        ) : (
+                          <EnvelopeSimple size={16} weight="bold" />
+                        )}
+                        Contact ({match.tutor.preferredContact === 'whatsapp' ? 'WhatsApp' : 'E-mail'})
                       </h4>
-                      <a 
-                        href={`tel:${match.tutor.phoneNumber}`}
-                        className="text-sm text-primary hover:underline font-medium"
-                      >
-                        {match.tutor.phoneNumber}
-                      </a>
+                      {match.tutor.preferredContact === 'whatsapp' && match.tutor.phoneNumber ? (
+                        <a 
+                          href={`https://wa.me/${match.tutor.phoneNumber.replace(/\s+/g, '')}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-sm text-primary hover:underline font-medium flex items-center gap-1"
+                        >
+                          <WhatsappLogo size={14} weight="bold" />
+                          {match.tutor.phoneNumber}
+                        </a>
+                      ) : match.tutor.email ? (
+                        <a 
+                          href={`mailto:${match.tutor.email}`}
+                          className="text-sm text-primary hover:underline font-medium flex items-center gap-1"
+                        >
+                          <EnvelopeSimple size={14} weight="bold" />
+                          {match.tutor.email}
+                        </a>
+                      ) : match.tutor.phoneNumber ? (
+                        <a 
+                          href={`tel:${match.tutor.phoneNumber}`}
+                          className="text-sm text-primary hover:underline font-medium flex items-center gap-1"
+                        >
+                          <Phone size={14} weight="bold" />
+                          {match.tutor.phoneNumber}
+                        </a>
+                      ) : null}
                     </div>
                   )}
 

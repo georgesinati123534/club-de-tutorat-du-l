@@ -15,6 +15,7 @@ export type Tutor = {
   phoneNumber?: string
   email?: string
   password: string
+  preferredContact?: 'email' | 'whatsapp'
   createdAt: number
 }
 

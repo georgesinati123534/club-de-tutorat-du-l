@@ -49,6 +49,9 @@ export default function TutorConfirmation({ tutor, onBack }: TutorConfirmationPr
                       <span className="font-medium">Numéro de contact :</span> {tutor.phoneNumber}
                     </p>
                   )}
+                  <p className="text-sm">
+                    <span className="font-medium">Méthode préférée :</span> {tutor.preferredContact === 'whatsapp' ? 'WhatsApp' : 'E-mail'}
+                  </p>
                 </div>
               )}
             </div>

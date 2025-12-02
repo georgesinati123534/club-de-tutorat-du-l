@@ -34,6 +34,7 @@ export default function TutorEdit({ tutor, onBack, onSave, onDelete }: TutorEdit
   const [selectedClass, setSelectedClass] = useState(tutor.class)
   const [phoneNumber, setPhoneNumber] = useState(tutor.phoneNumber || '')
   const [email, setEmail] = useState(tutor.email || '')
+  const [preferredContact, setPreferredContact] = useState<'email' | 'whatsapp'>(tutor.preferredContact || 'email')
   const [selectedSubjects, setSelectedSubjects] = useState<string[]>(tutor.subjects)
   const [selectedSlots, setSelectedSlots] = useState<TimeSlot[]>(tutor.availability)
 
@@ -79,6 +80,7 @@ export default function TutorEdit({ tutor, onBack, onSave, onDelete }: TutorEdit
       availability: selectedSlots,
       phoneNumber: phoneNumber.trim() || undefined,
       email: email.trim() || undefined,
+      preferredContact,
     }
 
     onSave(updatedTutor)
@@ -153,6 +155,23 @@ export default function TutorEdit({ tutor, onBack, onSave, onDelete }: TutorEdit
               />
               <p className="text-xs text-muted-foreground">
                 Pour être contacté(e) par les tutorés
+              </p>
+            </div>
+
+            <div className="space-y-2">
+              <Label htmlFor="edit-preferredContact">Méthode de communication préférée *</Label>
+              <select
+                id="edit-preferredContact"
+                value={preferredContact}
+                onChange={(e) => setPreferredContact(e.target.value as 'email' | 'whatsapp')}
+                required
+                className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              >
+                <option value="email">E-mail</option>
+                <option value="whatsapp">WhatsApp</option>
+              </select>
+              <p className="text-xs text-muted-foreground">
+                Comment souhaitez-vous être contacté par les tutorés ?
               </p>
             </div>
 

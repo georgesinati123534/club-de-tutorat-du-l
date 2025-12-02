@@ -20,18 +20,18 @@ Un site web de tutorat scolaire qui connecte les élèves tuteurs et tutorés du
 - **Success criteria**: Les visiteurs comprennent immédiatement le but du club et peuvent choisir leur parcours en moins de 10 secondes
 
 ### Inscription tuteur
-- **Functionality**: Formulaire collectant prénom, nom, classe, matières enseignées, disponibilités, et mot de passe de sécurisation
-- **Purpose**: Recruter des tuteurs qualifiés, structurer leurs profils pour le matching, et sécuriser l'accès à leur compte
+- **Functionality**: Formulaire collectant prénom, nom, classe, matières enseignées, disponibilités, méthode de communication préférée (email ou WhatsApp), et mot de passe de sécurisation
+- **Purpose**: Recruter des tuteurs qualifiés, structurer leurs profils pour le matching, permettre aux tuteurs de choisir leur canal de communication préféré, et sécuriser l'accès à leur compte
 - **Trigger**: Clic sur "Devenir tuteur"
-- **Progression**: Clic CTA → Formulaire affiché → Remplissage des champs → Création mot de passe → Sélection matières/disponibilités → Soumission → Confirmation
-- **Success criteria**: Formulaire validé, profil tuteur créé avec mot de passe sécurisé, disponible pour matching
+- **Progression**: Clic CTA → Formulaire affiché → Remplissage des champs → Sélection méthode de contact → Création mot de passe → Sélection matières/disponibilités → Soumission → Confirmation
+- **Success criteria**: Formulaire validé, profil tuteur créé avec mot de passe sécurisé et préférence de communication enregistrée, disponible pour matching
 
 ### Modification profil tuteur
-- **Functionality**: Connexion sécurisée permettant aux tuteurs de modifier leur profil ou supprimer leur compte
-- **Purpose**: Donner le contrôle aux tuteurs sur leurs informations et maintenir l'exactitude des données
+- **Functionality**: Connexion sécurisée permettant aux tuteurs de modifier leur profil (y compris leur méthode de communication préférée) ou supprimer leur compte
+- **Purpose**: Donner le contrôle aux tuteurs sur leurs informations, leur préférence de contact, et maintenir l'exactitude des données
 - **Trigger**: Clic sur "Modifier mon profil" depuis la page d'accueil
-- **Progression**: Clic CTA → Formulaire de connexion → Saisie nom/prénom/mot de passe → Authentification → Accès page d'édition → Modification/Suppression
-- **Success criteria**: Authentification réussie uniquement avec le bon mot de passe, modifications sauvegardées ou compte supprimé
+- **Progression**: Clic CTA → Formulaire de connexion → Saisie nom/prénom/mot de passe → Authentification → Accès page d'édition → Modification méthode de contact/autres infos/Suppression
+- **Success criteria**: Authentification réussie uniquement avec le bon mot de passe, modifications (incluant préférence de communication) sauvegardées ou compte supprimé
 
 ### Inscription tutoré
 - **Functionality**: Formulaire pour élèves cherchant de l'aide (coordonnées, matières, disponibilités)
@@ -41,11 +41,11 @@ Un site web de tutorat scolaire qui connecte les élèves tuteurs et tutorés du
 - **Success criteria**: Profil tutoré créé, algorithme de matching exécuté, liste de tuteurs compatibles présentée
 
 ### Système de matching automatique
-- **Functionality**: Associe tuteurs et tutorés selon matières et disponibilités communes
-- **Purpose**: Faciliter la mise en relation et optimiser l'organisation du tutorat
+- **Functionality**: Associe tuteurs et tutorés selon matières et disponibilités communes, affiche la méthode de contact préférée du tuteur (email ou WhatsApp)
+- **Purpose**: Faciliter la mise en relation et optimiser l'organisation du tutorat en respectant les préférences de communication
 - **Trigger**: Soumission du formulaire tutoré
-- **Progression**: Soumission → Analyse des matières demandées → Vérification disponibilités → Calcul compatibilité → Tri par pertinence → Affichage résultats
-- **Success criteria**: Un tuteur peut être assigné à plusieurs tutorés, les matches affichent les créneaux communs, interface permet de voir les profils compatibles
+- **Progression**: Soumission → Analyse des matières demandées → Vérification disponibilités → Calcul compatibilité → Tri par pertinence → Affichage résultats avec méthode de contact préférée
+- **Success criteria**: Un tuteur peut être assigné à plusieurs tutorés, les matches affichent les créneaux communs et la méthode de communication préférée (email ou WhatsApp), interface permet de contacter directement les tuteurs compatibles
 
 ### Section contact
 - **Functionality**: Informations de contact du club et formulaire de message

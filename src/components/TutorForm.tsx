@@ -23,6 +23,7 @@ export default function TutorForm({ onBack, onSubmit }: TutorFormProps) {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [confirmPassword, setConfirmPassword] = useState('')
+  const [preferredContact, setPreferredContact] = useState<'email' | 'whatsapp'>('email')
   const [selectedSubjects, setSelectedSubjects] = useState<string[]>([])
   const [selectedSlots, setSelectedSlots] = useState<TimeSlot[]>([])
 
@@ -78,6 +79,7 @@ export default function TutorForm({ onBack, onSubmit }: TutorFormProps) {
       availability: selectedSlots,
       phoneNumber: phoneNumber.trim() || undefined,
       email: email.trim() || undefined,
+      preferredContact,
       password,
       createdAt: Date.now()
     }
@@ -148,6 +150,23 @@ export default function TutorForm({ onBack, onSubmit }: TutorFormProps) {
               />
               <p className="text-xs text-muted-foreground">
                 Pour être contacté(e) par les tutorés
+              </p>
+            </div>
+
+            <div className="space-y-2">
+              <Label htmlFor="preferredContact">Méthode de communication préférée *</Label>
+              <select
+                id="preferredContact"
+                value={preferredContact}
+                onChange={(e) => setPreferredContact(e.target.value as 'email' | 'whatsapp')}
+                required
+                className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              >
+                <option value="email">E-mail</option>
+                <option value="whatsapp">WhatsApp</option>
+              </select>
+              <p className="text-xs text-muted-foreground">
+                Comment souhaitez-vous être contacté par les tutorés ?
               </p>
             </div>
 
