@@ -1,6 +1,6 @@
 import { Button } from '@/components/ui/button'
 import { GraduationCap, BookOpen, Users } from '@phosphor-icons/react'
-import logo from '@/assets/images/logo.svg'
+import logo from '@/assets/images/Logo_(1).png'
 
 type HeroProps = {
   onBecomeTutor: () => void
