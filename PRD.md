@@ -20,11 +20,18 @@ Un site web de tutorat scolaire qui connecte les élèves tuteurs et tutorés du
 - **Success criteria**: Les visiteurs comprennent immédiatement le but du club et peuvent choisir leur parcours en moins de 10 secondes
 
 ### Inscription tuteur
-- **Functionality**: Formulaire collectant prénom, nom, classe, matières enseignées, moyenne (≥16/20), disponibilités
-- **Purpose**: Recruter des tuteurs qualifiés et structurer leurs profils pour le matching
+- **Functionality**: Formulaire collectant prénom, nom, classe, matières enseignées, disponibilités, et mot de passe de sécurisation
+- **Purpose**: Recruter des tuteurs qualifiés, structurer leurs profils pour le matching, et sécuriser l'accès à leur compte
 - **Trigger**: Clic sur "Devenir tuteur"
-- **Progression**: Clic CTA → Formulaire affiché → Remplissage des champs → Validation moyenne ≥16 → Sélection matières/disponibilités → Soumission → Confirmation
-- **Success criteria**: Formulaire validé avec contrainte de moyenne respectée, profil tuteur créé et disponible pour matching
+- **Progression**: Clic CTA → Formulaire affiché → Remplissage des champs → Création mot de passe → Sélection matières/disponibilités → Soumission → Confirmation
+- **Success criteria**: Formulaire validé, profil tuteur créé avec mot de passe sécurisé, disponible pour matching
+
+### Modification profil tuteur
+- **Functionality**: Connexion sécurisée permettant aux tuteurs de modifier leur profil ou supprimer leur compte
+- **Purpose**: Donner le contrôle aux tuteurs sur leurs informations et maintenir l'exactitude des données
+- **Trigger**: Clic sur "Modifier mon profil" depuis la page d'accueil
+- **Progression**: Clic CTA → Formulaire de connexion → Saisie nom/prénom/mot de passe → Authentification → Accès page d'édition → Modification/Suppression
+- **Success criteria**: Authentification réussie uniquement avec le bon mot de passe, modifications sauvegardées ou compte supprimé
 
 ### Inscription tutoré
 - **Functionality**: Formulaire pour élèves cherchant de l'aide (coordonnées, matières, disponibilités)
@@ -49,10 +56,12 @@ Un site web de tutorat scolaire qui connecte les élèves tuteurs et tutorés du
 
 ## Edge Case Handling
 - **Aucun tuteur disponible** - Message encourageant à devenir tuteur ou à réessayer plus tard
-- **Moyenne insuffisante** - Validation en temps réel avec message constructif expliquant le critère de 16/20
 - **Aucune disponibilité commune** - Suggestion de tuteurs avec disponibilités proches ou possibilité d'élargir les créneaux
 - **Matières multiples** - Interface permettant sélection multiple intuitive avec tags visuels
 - **Données incomplètes** - Validation champ par champ avec indications claires des informations manquantes
+- **Mot de passe oublié** - Message d'erreur clair indiquant informations incorrectes
+- **Mot de passe trop court** - Validation en temps réel avec message indiquant minimum 6 caractères
+- **Mots de passe non-concordants** - Validation lors de la confirmation empêchant la soumission
 
 ## Design Direction
 Le design doit évoquer l'excellence académique du Lycée Bonaparte tout en restant accessible et chaleureux pour encourager la participation - un équilibre entre sérieux institutionnel et convivialité estudiantine, avec une interface épurée qui met en avant le contenu et facilite l'action.

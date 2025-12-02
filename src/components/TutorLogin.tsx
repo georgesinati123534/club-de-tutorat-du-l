@@ -16,7 +16,7 @@ type TutorLoginProps = {
 export default function TutorLogin({ onBack, onTutorFound, tutors }: TutorLoginProps) {
   const [firstName, setFirstName] = useState('')
   const [lastName, setLastName] = useState('')
-  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault()
@@ -24,13 +24,13 @@ export default function TutorLogin({ onBack, onTutorFound, tutors }: TutorLoginP
     const foundTutor = tutors.find(tutor => 
       tutor.firstName.toLowerCase() === firstName.toLowerCase() &&
       tutor.lastName.toLowerCase() === lastName.toLowerCase() &&
-      (tutor.email?.toLowerCase() === email.toLowerCase() || (!tutor.email && !email))
+      tutor.password === password
     )
 
     if (foundTutor) {
       onTutorFound(foundTutor)
     } else {
-      toast.error('Aucun profil trouvé avec ces informations')
+      toast.error('Informations incorrectes. Vérifiez votre nom et mot de passe.')
     }
   }
 
@@ -45,7 +45,7 @@ export default function TutorLogin({ onBack, onTutorFound, tutors }: TutorLoginP
         <CardHeader>
           <CardTitle className="text-3xl">Modifier mon profil</CardTitle>
           <CardDescription className="text-base">
-            Entrez vos informations pour accéder à votre profil de tuteur
+            Connectez-vous avec votre nom et mot de passe pour accéder à votre profil
           </CardDescription>
         </CardHeader>
         <CardContent>
@@ -71,22 +71,23 @@ export default function TutorLogin({ onBack, onTutorFound, tutors }: TutorLoginP
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="search-email">Adresse e-mail</Label>
+              <Label htmlFor="search-password">Mot de passe *</Label>
               <Input
-                id="search-email"
-                type="email"
-                placeholder="votre.email@exemple.fr"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                id="search-password"
+                type="password"
+                placeholder="••••••••"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
               />
               <p className="text-xs text-muted-foreground">
-                L'adresse e-mail que vous avez utilisée lors de votre inscription
+                Le mot de passe que vous avez créé lors de votre inscription
               </p>
             </div>
 
             <Button type="submit" size="lg" className="w-full">
               <MagnifyingGlass size={20} className="mr-2" weight="bold" />
-              Rechercher mon profil
+              Se connecter
             </Button>
           </form>
         </CardContent>

@@ -21,6 +21,8 @@ export default function TutorForm({ onBack, onSubmit }: TutorFormProps) {
   const [selectedClass, setSelectedClass] = useState('')
   const [phoneNumber, setPhoneNumber] = useState('')
   const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [confirmPassword, setConfirmPassword] = useState('')
   const [selectedSubjects, setSelectedSubjects] = useState<string[]>([])
   const [selectedSlots, setSelectedSlots] = useState<TimeSlot[]>([])
 
@@ -57,6 +59,16 @@ export default function TutorForm({ onBack, onSubmit }: TutorFormProps) {
       return
     }
 
+    if (!password || password.length < 6) {
+      toast.error('Le mot de passe doit contenir au moins 6 caractères')
+      return
+    }
+
+    if (password !== confirmPassword) {
+      toast.error('Les mots de passe ne correspondent pas')
+      return
+    }
+
     const tutor: Tutor = {
       id: Date.now().toString(),
       firstName,
@@ -66,6 +78,7 @@ export default function TutorForm({ onBack, onSubmit }: TutorFormProps) {
       availability: selectedSlots,
       phoneNumber: phoneNumber.trim() || undefined,
       email: email.trim() || undefined,
+      password,
       createdAt: Date.now()
     }
 
@@ -136,6 +149,33 @@ export default function TutorForm({ onBack, onSubmit }: TutorFormProps) {
               <p className="text-xs text-muted-foreground">
                 Pour être contacté(e) par les tutorés
               </p>
+            </div>
+
+            <div className="space-y-2">
+              <Label htmlFor="password">Mot de passe *</Label>
+              <Input
+                id="password"
+                type="password"
+                placeholder="••••••••"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+              />
+              <p className="text-xs text-muted-foreground">
+                Au moins 6 caractères pour sécuriser votre profil
+              </p>
+            </div>
+
+            <div className="space-y-2">
+              <Label htmlFor="confirmPassword">Confirmer le mot de passe *</Label>
+              <Input
+                id="confirmPassword"
+                type="password"
+                placeholder="••••••••"
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
+                required
+              />
             </div>
 
             <div className="space-y-2">

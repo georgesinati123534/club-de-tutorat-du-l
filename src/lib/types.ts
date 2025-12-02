@@ -14,6 +14,7 @@ export type Tutor = {
   availability: TimeSlot[]
   phoneNumber?: string
   email?: string
+  password: string
   createdAt: number
 }
 
