@@ -12,15 +12,15 @@ export default function AboutSection() {
       name: 'Christa Tutinji',
       role: 'Fondatrice',
       class: 'Terminale'
+    },
+    {
+      name: 'Georges Inati',
+      role: 'Fondateur',
+      class: 'Terminale'
     }
   ]
 
   const creators = [
-    {
-      name: 'Georges Inati',
-      role: 'Développeur',
-      class: 'Terminale'
-    },
     {
       name: 'Raphael El Khoury',
       role: 'Développeur',
@@ -94,7 +94,7 @@ export default function AboutSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-20">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto mb-20">
           {founders.map((founder, index) => (
             <Card key={index} className="hover:shadow-lg transition-shadow">
               <CardContent className="pt-8 text-center">
@@ -120,7 +120,7 @@ export default function AboutSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           {creators.map((creator, index) => (
             <Card key={index} className="hover:shadow-lg transition-shadow">
               <CardContent className="pt-8 text-center">
