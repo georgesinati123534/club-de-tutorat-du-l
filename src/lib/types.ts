@@ -24,7 +24,6 @@ export type Tutee = {
   firstName: string
   lastName: string
   class: string
-  email: string
   subjects: Subject[]
   availability: TimeSlot[]
   createdAt: number

@@ -18,7 +18,6 @@ type TuteeFormProps = {
 export default function TuteeForm({ onBack, onSubmit }: TuteeFormProps) {
   const [firstName, setFirstName] = useState('')
   const [lastName, setLastName] = useState('')
-  const [email, setEmail] = useState('')
   const [selectedClass, setSelectedClass] = useState('')
   const [selectedSubjects, setSelectedSubjects] = useState<string[]>([])
   const [selectedSlots, setSelectedSlots] = useState<TimeSlot[]>([])
@@ -60,7 +59,6 @@ export default function TuteeForm({ onBack, onSubmit }: TuteeFormProps) {
       id: Date.now().toString(),
       firstName,
       lastName,
-      email,
       class: selectedClass,
       subjects: selectedSubjects,
       availability: selectedSlots,
@@ -108,34 +106,20 @@ export default function TuteeForm({ onBack, onSubmit }: TuteeFormProps) {
               </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div className="space-y-2">
-                <Label htmlFor="email">Email *</Label>
-                <Input
-                  id="email"
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="prenom.nom@lycee-bonaparte.fr"
-                  required
-                />
-              </div>
-
-              <div className="space-y-2">
-                <Label htmlFor="class">Classe *</Label>
-                <select
-                  id="class"
-                  value={selectedClass}
-                  onChange={(e) => setSelectedClass(e.target.value)}
-                  required
-                  className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-                >
-                  <option value="">Sélectionner...</option>
-                  {CLASSES_TUTEE.map(cls => (
-                    <option key={cls} value={cls}>{cls}</option>
-                  ))}
-                </select>
-              </div>
+            <div className="space-y-2">
+              <Label htmlFor="class">Classe *</Label>
+              <select
+                id="class"
+                value={selectedClass}
+                onChange={(e) => setSelectedClass(e.target.value)}
+                required
+                className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              >
+                <option value="">Sélectionner...</option>
+                {CLASSES_TUTEE.map(cls => (
+                  <option key={cls} value={cls}>{cls}</option>
+                ))}
+              </select>
             </div>
 
             <div className="space-y-3">
