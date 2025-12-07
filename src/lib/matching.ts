@@ -33,6 +33,7 @@ export const CLASSES_TUTEE = [
 ]
 
 export const CLASSES_TUTOR = [
+  'Troisième',
   'Seconde',
   'Première',
   'Terminale'
