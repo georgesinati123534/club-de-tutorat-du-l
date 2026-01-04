@@ -17,7 +17,7 @@ export default defineConfig({
     createIconImportProxy() as PluginOption,
     sparkPlugin() as PluginOption,
   ],
-  base: "club-de-tutorat-du-l",
+  base: "/",
   resolve: {
     alias: {
       '@': resolve(projectRoot, 'src')
