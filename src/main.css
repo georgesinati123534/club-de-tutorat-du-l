@@ -6,7 +6,7 @@
 /*
   ---break---
 */
-@custom-variant dark (&:is(.dark *));
+@variant dark (&:is(.dark *));
 
 @config '../tailwind.config.js';
 

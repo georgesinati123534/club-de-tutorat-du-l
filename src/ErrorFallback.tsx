@@ -4,7 +4,9 @@ import { Button } from "./components/ui/button";
 import { Warning, ArrowClockwise } from "@phosphor-icons/react";
 
 export const ErrorFallback = ({ error, resetErrorBoundary }) => {
-  if (import.meta.env.DEV) throw error;
+  if (import.meta.env.DEV) {
+    console.error(error);
+}
 
   return (
     <div className="min-h-screen bg-background flex items-center justify-center p-4">
