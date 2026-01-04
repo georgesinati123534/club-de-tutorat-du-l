@@ -9,7 +9,7 @@ export default function AboutSection() {
       class: 'Terminale'
     },
     {
-      name: 'Christa Tutinji',
+      name: 'Christa Toutou',
       role: 'Fondatrice',
       class: 'Terminale'
     },
